@@ -5,19 +5,61 @@ import Qt.labs.platform
 import org.kde.kirigami as Kirigami
 
 Item {
-    id: configRoot
+    id: general
 
     signal configurationChanged
 
     property alias cfg_colordaytext: dayColorDialog.color
     property alias cfg_colordatetext: colorDialog.color
+    property bool cfg_amharic_number: true
 
     ColorDialog {
         id: dayColorDialog
     }
+
     ColorDialog {
         id: colorDialog
     }
+
+    component ColorPicker: RowLayout {
+        property alias label: label.text
+        property alias color: colorhex.color
+        Layout.fillWidth: true
+
+        Label {
+            id: label
+            Layout.minimumWidth: general.width / 2
+            horizontalAlignment: Label.AlignRight
+        }
+        Item {
+            implicitWidth: 64
+            implicitHeight: 18
+            Rectangle {
+                radius: 4
+                width: 64
+                height: 18
+                border.color: "black"
+                opacity: 0.5
+                color: "transparent"
+                border.width: 2
+            }
+            Rectangle {
+                id: colorhex
+                width: 64
+                height: 18
+                border.color: "#B3FFFFFF"
+                border.width: 1
+                radius: 4
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        label.text == "Day color:" ? dayColorDialog.open() : colorDialog.open();
+                    }
+                }
+            }
+        }
+    }
+
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing
         Layout.fillWidth: true
@@ -25,75 +67,27 @@ Item {
         Kirigami.Heading {
             text: "General"
             font.pointSize: 18
+            horizontalAlignment: Label.AlignRight
         }
 
-        GridLayout {
-            columns: 2
-            Label {
-                text: "Color day text:"
-                Layout.minimumWidth: configRoot.width / 2
-                horizontalAlignment: Label.AlignRight
+        ColumnLayout {
+            spacing: Kirigami.Units.largeSpacing
+
+            ColorPicker {
+                label: "Day color:"
+                color: dayColorDialog.color
             }
-            Item {
-                width: 64
-                height: 24
-                Rectangle {
-                    width: 64
-                    radius: 4
-                    height: 24
-                    border.color: "black"
-                    opacity: 0.5
-                    color: "transparent"
-                    border.width: 2
-                }
-                Rectangle {
-                    id: colorhex
-                    color: dayColorDialog.color
-                    border.color: "#B3FFFFFF"
-                    border.width: 1
-                    width: 64
-                    radius: 4
-                    height: 24
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            dayColorDialog.open();
-                        }
-                    }
-                }
+
+            ColorPicker {
+                label: "Date color:"
+                color: colorDialog.color
             }
-            Label {}
-            Label {}
-            Label {
-                text: "Color date text"
-                Layout.minimumWidth: configRoot.width / 2
-                horizontalAlignment: Label.AlignRight
-            }
-            Item {
-                width: 64
-                height: 24
-                Rectangle {
-                    width: 64
-                    radius: 4
-                    height: 24
-                    border.color: "black"
-                    opacity: 0.5
-                    color: "transparent"
-                    border.width: 2
-                }
-                Rectangle {
-                    color: colorDialog.color
-                    border.color: "#B3FFFFFF"
-                    border.width: 1
-                    width: 64
-                    radius: 4
-                    height: 24
-                    MouseArea {
-                        anchors.fill: parent
-                        onClicked: {
-                            colorDialog.open();
-                        }
-                    }
+
+            RowLayout {
+                Label {
+                    text: "Ge'ez mode:"
+                    Layout.minimumWidth: general.width / 2
+                    horizontalAlignment: Label.AlignRight
                 }
             }
         }
