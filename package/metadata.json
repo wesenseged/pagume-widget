@@ -1,0 +1,22 @@
+{
+	"KPlugin": {
+		"Authors": [
+			{
+				"Email": "wseged@proton.me",
+				"Name": "Abenezer Wesenseged"
+			}
+		],
+		"Name": "Pagume Date",
+		"Id": "com.github.wesenseged.pagume",
+		"Description": "Widget current Ethiopian Date",
+		"Category": "Utilities",
+		"Icon": "calendar",
+		"EnabledByDefault": true,
+		"X-Plasma-API-Minimum-Version": "6.0",
+		"ServiceTypes": ["Plasma/Applet"],
+		"Version": "0.1",
+		"Website": "https://github.com/wesenseged/pagume"
+	},
+	"X-Plasma-API-Minimum-Version": "6.0",
+	"X-Plasma-MainScript": "ui/main.qml"
+}

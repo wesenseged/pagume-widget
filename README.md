@@ -14,6 +14,6 @@ This plasmoid displays the current date in Ethiopian Calendar.
 #### Creadit
 
 - inspiration Dark Hour plasmoid
-- Loga font by belagraph 
+- Loga font by Type Habesha 
 
 
