@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Qt.labs.platform
+import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.kirigami as Kirigami
 
 Item {
@@ -28,8 +29,6 @@ Item {
 
         Label {
             id: label
-            Layout.minimumWidth: general.width / 2
-            horizontalAlignment: Label.AlignRight
         }
         Item {
             implicitWidth: 64
@@ -66,29 +65,34 @@ Item {
 
         Kirigami.Heading {
             text: "General"
-            font.pointSize: 18
-            horizontalAlignment: Label.AlignRight
+            topPadding: 10
+            leftPadding: 18
+            font.pointSize: 14
         }
 
         ColumnLayout {
             spacing: Kirigami.Units.largeSpacing
+            Layout.fillWidth: true
 
             ColorPicker {
                 label: "Day color:"
                 color: dayColorDialog.color
+                Layout.alignment: Qt.AlignCenter
+                Layout.preferredWidth: 40
             }
 
             ColorPicker {
                 label: "Date color:"
                 color: colorDialog.color
+                Layout.alignment: Qt.AlignCenter
+                Layout.preferredWidth: 40
             }
 
-            RowLayout {
-                Label {
-                    text: "Ge'ez mode:"
-                    Layout.minimumWidth: general.width / 2
-                    horizontalAlignment: Label.AlignRight
-                }
+            PlasmaComponents3.CheckBox {
+                text: i18n("Ge'ez Number")
+                checked: false
+                Layout.alignment: Qt.AlignCenter
+                Layout.preferredWidth: 40
             }
         }
     }

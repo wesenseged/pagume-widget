@@ -1,10 +1,11 @@
 /*
-SPDX-FileCopyrightText: zayronxio
+SPDX-FileCopyrightText: Abenezer Wesenseged
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
 import QtQuick
 import Qt5Compat.GraphicalEffects
+import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.plasmoid
 import "js/format.js" as EthCal
 
@@ -24,7 +25,7 @@ PlasmoidItem {
         })
 
     preferredRepresentation: fullRepresentation
-    Plasmoid.backgroundHints: "NoBackground"
+    Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
 
     FontLoader {
         id: logaFont
@@ -45,21 +46,16 @@ PlasmoidItem {
         width: parent.width
         height: parent.height
 
-        Item {
-            id: day
+        Text {
+            id: dayText
             width: parent.width
             height: parent.height * .7
-            Text {
-                id: dayText
-                width: day.width
-                height: day.height
-                color: root.colorDay
-                text: root.weekdays[root.weekdayName]
-                font.family: logaFont.name
-                font.pixelSize: parent.height * 0.85
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
+            color: root.colorDay
+            text: root.weekdays[root.weekdayName]
+            font.family: logaFont.name
+            font.pixelSize: parent.height * 0.85
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
         }
 
         Item {
@@ -70,7 +66,6 @@ PlasmoidItem {
                 color: root.colorDate
                 width: dayAndMonth.implicitWidth * 1.6
                 height: dayAndMonth.implicitHeight * 1.5
-                radius: height
                 layer.enabled: true
                 layer.effect: OpacityMask {
                     maskSource: dayAndMonth
