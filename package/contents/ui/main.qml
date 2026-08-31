@@ -40,7 +40,7 @@ PlasmoidItem {
     property int currentEthYear: ethToday.year
     property int currentEthDay: ethToday.day
     property int currentEthMonth: ethToday.month
-    property string weekdayName: Qt.formatDate(new Date(), "ddd")
+    property string weekdayName: Qt.formatDate(root.today, "ddd")
 
     Column {
         width: parent.width
@@ -87,6 +87,17 @@ PlasmoidItem {
                     verticalAlignment: Text.AlignVCenter
                 }
             }
+        }
+    }
+    Timer {
+        id: midnightTimer
+        interval: 86400000 - (new Date().getHours() * 3600000 + new Date().getMinutes() * 60000 + new Date().getSeconds() * 1000 + new Date().getMilliseconds())
+        running: true
+        repeat: true
+        onTriggered: {
+            const now = new Date();
+            root.today = now;
+            interval = 86400000 - (now.getHours() * 3600000 + now.getMinutes() * 60000 + now.getSeconds() * 1000 + now.getMilliseconds());
         }
     }
 }
