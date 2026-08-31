@@ -1,18 +1,36 @@
+/*
+SPDX-FileCopyrightText: 2026 Abenezer Wesenseged <wseged@proton.me>
+SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Qt.labs.platform
-import org.kde.plasma.components 3.0 as PlasmaComponents3
 import org.kde.kirigami as Kirigami
 
 Item {
     id: general
 
-    signal configurationChanged
-
     property alias cfg_colordaytext: dayColorDialog.color
     property alias cfg_colordatetext: colorDialog.color
-    property bool cfg_amharic_number: true
+    property alias cfg_amharicNumber: checkBox.checked
+    property alias cfg_font: fontComboBox.currentText
+
+    FontLoader {
+        id: logaFont
+        source: "../fonts/Loga-Bold.ttf"
+    }
+
+    FontLoader {
+        id: tayituFont
+        source: "../fonts/Tayitu.ttf"
+    }
+
+    FontLoader {
+        id: balderasuFont
+        source: "../fonts/Balderasu-Regular.ttf"
+    }
 
     ColorDialog {
         id: dayColorDialog
@@ -26,9 +44,12 @@ Item {
         property alias label: label.text
         property alias color: colorhex.color
         Layout.fillWidth: true
+        Layout.alignment: Qt.AlignVCenter
 
         Label {
             id: label
+            Layout.preferredWidth: 100
+            topPadding: 6
         }
         Item {
             implicitWidth: 64
@@ -59,16 +80,16 @@ Item {
         }
     }
 
+    Kirigami.Heading {
+        text: "General"
+        topPadding: 10
+        leftPadding: 18
+        font.pointSize: 14
+    }
     ColumnLayout {
+        anchors.centerIn: parent
         spacing: Kirigami.Units.largeSpacing
         Layout.fillWidth: true
-
-        Kirigami.Heading {
-            text: "General"
-            topPadding: 10
-            leftPadding: 18
-            font.pointSize: 14
-        }
 
         ColumnLayout {
             spacing: Kirigami.Units.largeSpacing
@@ -77,22 +98,47 @@ Item {
             ColorPicker {
                 label: "Day color:"
                 color: dayColorDialog.color
-                Layout.alignment: Qt.AlignCenter
-                Layout.preferredWidth: 40
             }
 
             ColorPicker {
                 label: "Date color:"
                 color: colorDialog.color
-                Layout.alignment: Qt.AlignCenter
-                Layout.preferredWidth: 40
             }
 
-            PlasmaComponents3.CheckBox {
-                text: i18n("Ge'ez Number")
-                checked: false
-                Layout.alignment: Qt.AlignCenter
-                Layout.preferredWidth: 40
+            RowLayout {
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignVCenter
+                spacing: Kirigami.Units.smallSpacing
+                Label {
+                    text: "Font: "
+                    Layout.preferredWidth: 100
+                    topPadding: 6
+                }
+                ComboBox {
+                    id: fontComboBox
+                    Layout.preferredWidth: 100
+                    model: [
+                        {
+                            text: "Loga",
+                            font: logaFont.name
+                        },
+                        {
+                            text: "Balderasu",
+                            font: balderasuFont.name
+                        },
+                        {
+                            text: "Tayitu",
+                            font: tayituFont.name
+                        }
+                    ]
+
+                    textRole: "text"
+                }
+            }
+
+            CheckBox {
+                id: checkBox
+                text: i18nc("@option:check", "Ge'ez Number")
             }
         }
     }

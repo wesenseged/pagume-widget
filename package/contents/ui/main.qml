@@ -1,5 +1,5 @@
 /*
-SPDX-FileCopyrightText: Abenezer Wesenseged
+SPDX-FileCopyrightText: 2026 Abenezer Wesenseged <wseged@proton.me>
 SPDX-License-Identifier: GPL-3.0-or-later
 */
 
@@ -24,16 +24,16 @@ PlasmoidItem {
             Sun: "እሑድ"
         })
 
+    property var amharicNumbers: ["፩", "፪", "፫", "፬", "፭", "፮", "፯", "፰", "፱", "፲", "፲፩", "፲፪", "፲፫", "፲፬", "፲፭", "፲፮", "፲፯", "፲፰", "፲፱", "፳", "፳፩", "፳፪", "፳፫", "፳፬", "፳፭", "፳፮", "፳፯", "፳፰", "፳፱", "፴"]
+    property var amharicYears: ["፳፻፲፰", "፳፻፲፱", "፳፻፳", "፳፻፳፩", "፳፻፳፪", "፳፻፳፫", "፳፻፳፬", "፳፻፳፭", "፳፻፳፮", "፳፻፳፯", "፳፻፳፰", "፳፻፳፱", "፳፻፴"]
+
     preferredRepresentation: fullRepresentation
     Plasmoid.backgroundHints: PlasmaCore.Types.NoBackground
 
-    FontLoader {
-        id: logaFont
-        source: "../fonts/Loga-Bold.ttf"
-    }
-
     property string colorDay: Plasmoid.configuration.colordaytext
     property string colorDate: Plasmoid.configuration.colordatetext
+    property string font: Plasmoid.configuration.font
+    property bool amharicNumber: Plasmoid.configuration.amharicNumber
 
     property date today: new Date()
     property var ethToday: EthCal.toEthiopian(today.getFullYear(), today.getMonth() + 1, today.getDate())
@@ -52,7 +52,7 @@ PlasmoidItem {
             height: parent.height * .7
             color: root.colorDay
             text: root.weekdays[root.weekdayName]
-            font.family: logaFont.name
+            font.family: root.font
             font.pixelSize: parent.height * 0.85
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter
@@ -79,8 +79,7 @@ PlasmoidItem {
 
                     width: parent.width
                     height: parent.height
-
-                    text: dayAndMonth.date + "  " + root.currentEthDay + "  " + root.currentEthYear + " ዓ.ም"
+                    text: `${dayAndMonth.date}  ${root.amharicNumber ? root.amharicNumbers[root.currentEthDay - 1] : root.currentEthDay}  ${root.amharicNumber ? root.amharicYears[root.currentEthYear - 2018] : root.currentEthYear} ዓ.ም`
                     font.pixelSize: root.height * 0.07
                     font.bold: true
                     visible: false

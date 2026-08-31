@@ -7,14 +7,14 @@
 			}
 		],
 		"Name": "Pagume Date",
-		"Id": "com.github.wesenseged.pagume",
 		"Description": "Widget current Ethiopian Date",
-		"Category": "Utilities",
+		"Category": "Date and Time",
 		"Icon": "calendar",
+		"BugReportUrl": "https://github.com/wesenseged/pagume-widget/issues",
+		"License": "GPL-3.0-or-later",
 		"EnabledByDefault": true,
-		"X-Plasma-API-Minimum-Version": "6.0",
 		"ServiceTypes": ["Plasma/Applet"],
-		"Version": "0.1",
+		"Version": "0.1.1",
 		"Website": "https://github.com/wesenseged/pagume"
 	},
 	"X-Plasma-API-Minimum-Version": "6.0",

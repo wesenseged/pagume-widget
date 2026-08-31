@@ -12,6 +12,12 @@
     <entry name="colordaytext" type="string">
       <default>#ffffff</default>
     </entry>
+    <entry name="font" type="string">
+      <default>Loga</default>
+    </entry>
+    <entry name="amharicNumber" type="Bool">
+        <default>false</default>
+    </entry>
   </group>
 
 </kcfg>
