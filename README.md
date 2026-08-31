@@ -9,10 +9,10 @@ This plasmoid displays the current date in Ethiopian Calendar.
 #### Feature
 - Change both day and date colors.
 - Switch between Arabic and Amharic numbers.
-- Switch between differnet fonts
+- Switch between different fonts
 
 
-#### Creadit
+#### Credits
 
 - inspiration Dark Hour plasmoid
 - Loga, Balderasu, Tayitu fonts by Type Habesha 
