@@ -13,8 +13,7 @@ git clone https://github.com/wesenseged/pagume-widget.git
 cd pagume-widget
 
 mkdir -p ~/.local/share/plasma/plasmoids 
-cp -r package ~/.local/share/plasma/plasmoids/com.github.wesenseged.pagume
-
+cp -r package ~/.local/share/plasma/plasmoids/pagume.date
 ```
 
 Then:

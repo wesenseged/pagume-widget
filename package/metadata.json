@@ -6,6 +6,7 @@
 				"Name": "Abenezer Wesenseged"
 			}
 		],
+		"Id": "pagume.date",
 		"Name": "Pagume Date",
 		"Description": "Widget current Ethiopian Date",
 		"Category": "Date and Time",

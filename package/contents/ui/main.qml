@@ -14,6 +14,23 @@ PlasmoidItem {
     width: 500
     height: 300
 
+    FontLoader {
+        id: logaFont
+        source: "../fonts/Loga-Bold.ttf"
+    }
+
+    FontLoader {
+        id: tayituFont
+        source: "../fonts/Tayitu.ttf"
+    }
+
+    FontLoader {
+        id: balderasuFont
+        source: "../fonts/Balderasu-Regular.ttf"
+    }
+
+    property var fonts: [logaFont.name, balderasuFont.name, tayituFont.name]
+
     property var weekdays: ({
             Mon: "ሰኞ",
             Tue: "ማክሰኞ",
@@ -52,7 +69,7 @@ PlasmoidItem {
             height: parent.height * .7
             color: root.colorDay
             text: root.weekdays[root.weekdayName]
-            font.family: root.font
+            font.family: root.fonts[root.font]
             font.pixelSize: parent.height * 0.85
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignVCenter

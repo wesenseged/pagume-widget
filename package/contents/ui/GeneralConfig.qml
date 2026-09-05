@@ -15,22 +15,7 @@ Item {
     property alias cfg_colordaytext: dayColorDialog.color
     property alias cfg_colordatetext: colorDialog.color
     property alias cfg_amharicNumber: checkBox.checked
-    property alias cfg_font: fontComboBox.currentText
-
-    FontLoader {
-        id: logaFont
-        source: "../fonts/Loga-Bold.ttf"
-    }
-
-    FontLoader {
-        id: tayituFont
-        source: "../fonts/Tayitu.ttf"
-    }
-
-    FontLoader {
-        id: balderasuFont
-        source: "../fonts/Balderasu-Regular.ttf"
-    }
+    property alias cfg_font: fontComboBox.currentIndex
 
     ColorDialog {
         id: dayColorDialog
@@ -117,22 +102,7 @@ Item {
                 ComboBox {
                     id: fontComboBox
                     Layout.preferredWidth: 100
-                    model: [
-                        {
-                            text: "Loga",
-                            font: logaFont.name
-                        },
-                        {
-                            text: "Balderasu",
-                            font: balderasuFont.name
-                        },
-                        {
-                            text: "Tayitu",
-                            font: tayituFont.name
-                        }
-                    ]
-
-                    textRole: "text"
+                    model: ["Loga", "Balderasu", "Tayitu"]
                 }
             }
 

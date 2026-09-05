@@ -12,8 +12,13 @@
     <entry name="colordaytext" type="string">
       <default>#ffffff</default>
     </entry>
-    <entry name="font" type="string">
-      <default>Loga</default>
+    <entry name="font" type="Enum">
+        <choices>
+            <choice name="Loga"/>
+            <choice name="Balderasu"/>
+            <choice name="Tayitu"/>
+        </choices>
+      <default>0</default>
     </entry>
     <entry name="amharicNumber" type="Bool">
         <default>false</default>
