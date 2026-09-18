@@ -3,17 +3,17 @@
 This plasmoid displays the current date in Ethiopian Calendar.
 
 ## Screenshot
-![screenshot](/assets/screenshot.png?raw=true "Pagume widget")
+![Pagume widget](/assets/widget.gif)
 
 #### Installation
+
+Install from Source
 
 ``` bash
 
 git clone https://github.com/wesenseged/pagume-widget.git
 cd pagume-widget
-
-mkdir -p ~/.local/share/plasma/plasmoids 
-cp -r package ~/.local/share/plasma/plasmoids/pagume.date
+kpackagetool6 --type Plasma/Applet --install .
 ```
 
 Then:

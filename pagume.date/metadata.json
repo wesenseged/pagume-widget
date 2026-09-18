@@ -10,7 +10,7 @@
 		"Name": "Pagume Date",
 		"Description": "Widget current Ethiopian Date",
 		"Category": "Date and Time",
-		"Icon": "calendar",
+		"Icon": "/icons/pagume.png",
 		"BugReportUrl": "https://github.com/wesenseged/pagume-widget/issues",
 		"License": "GPL-3.0-or-later",
 		"EnabledByDefault": true,
