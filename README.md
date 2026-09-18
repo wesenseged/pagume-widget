@@ -2,7 +2,6 @@
 
 This plasmoid displays the current date in Ethiopian Calendar.
 
-## Screenshot
 ![Pagume widget](/assets/widget.gif)
 
 #### Installation
