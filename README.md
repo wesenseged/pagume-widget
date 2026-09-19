@@ -12,7 +12,7 @@ Install from Source
 
 git clone https://github.com/wesenseged/pagume-widget.git
 cd pagume-widget
-kpackagetool6 --type Plasma/Applet --install .
+kpackagetool6 --type Plasma/Applet --install pagume.date
 ```
 
 Then:
