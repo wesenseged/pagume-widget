@@ -6,7 +6,16 @@ This plasmoid displays the current date in Ethiopian Calendar.
 
 #### Installation
 
-Install from Source
+Method 1 - Install from file
+
+Download the packaged widgets from the [Release page](https://github.com/wesenseged/pagume-widget/releases/latest) and load them manually:
+
+1. Desktop -> Right Click -> Enter Edit Mode
+2. Add Widget -> Get Widgets -> Install Widget From Local File
+3. Select the downloaded .plasmoid file
+
+
+Method 2 - Manual
 
 ``` bash
 
